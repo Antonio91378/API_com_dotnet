@@ -8,6 +8,6 @@ namespace MyFirstAPIWithAlura.Data
         public FilmeContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<Filme> filmes { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
     }
 }

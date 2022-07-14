@@ -9,7 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<FilmeContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("FilmeConnection")));
+var connection = builder.Configuration.GetConnectionString("FilmeConnection");
+builder.Services.AddDbContext<FilmeContext>(options => options.UseMySql(connection,new MySqlServerVersion(new Version(8, 0, 29))));
 
 var app = builder.Build();
 
