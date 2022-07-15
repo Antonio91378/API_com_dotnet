@@ -63,10 +63,8 @@ namespace MyFirstAPIWithAlura.Controllers
             {
                 return NotFound();
             }
-            filme.Titulo = filmeNovoDto.Titulo;
-            filme.Genero = filmeNovoDto.Genero;
-            filme.Duracao = filmeNovoDto.Duracao;
-            filme.Diretor = filmeNovoDto.Diretor;
+            //note que agora o autoMapper nao recebe apenas um objeto
+            _mapper.Map(filmeNovoDto, filme);
             _context.SaveChanges();
             return NoContent();
         }
